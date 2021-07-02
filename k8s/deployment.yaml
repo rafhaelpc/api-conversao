@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-conversao
+spec:
+  selector:
+    matchLabels:
+      app: api-conversao
+  template:
+    metadata:
+      labels:
+        app: api-conversao
+    spec:
+      containers:
+        - name: api-conversao
+          image: rafhaelpc/api-conversao:v1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
